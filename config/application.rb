@@ -1,6 +1,6 @@
 Jets.application.configure do
   config.project_name = "demo"
-  config.api_generator = false
+  config.mode = "html"
 
   # config.prewarm.enable = true # default is true
   # config.prewarm.rate = '30 minutes' # default is '30 minutes'
