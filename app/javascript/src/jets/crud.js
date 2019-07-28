@@ -36,7 +36,7 @@ $(function() {
     var submit = $(e.target);
     var form = submit.closest('form');
     var url = form.attr("action");
-    var method = form.find("input[name=_method]");
+    var method = $("input[name=_method]");
 
     if (method.attr("value") != "put") {
       return true;
@@ -66,9 +66,12 @@ $(function() {
     node.hide(); // immediately hide element
 
     var resource = link.attr("href");
+    var token = $('meta[name=csrf-token]').attr('content');
+    var data = { authenticity_token: token };
     var request = $.ajax({
       url: resource,
       method: "DELETE",
+      data: data,
       dataType: "json"
     });
 
